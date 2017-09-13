@@ -1,4 +1,5 @@
 <section>
     Login Component
+    <base-component *ngFor="let item of componentList" [componentModel]="item"></base-component>
     <a routerLink="/dashboard/home">login</a>
 </section>
