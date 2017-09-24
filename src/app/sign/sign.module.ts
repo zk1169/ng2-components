@@ -1,17 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HttpModule, JsonpModule, Http } from '@angular/http';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 import { ComponentModule } from '../components/component.module';
 
+import { SharedModule } from '../shared/shared.module';
 import { SignComponent } from './sign-component';
 import { LoginComponent } from './login-component';
 import { SignRoutes } from './sign.routes';
 
+export function createTranslateLoader(http: Http){
+    return new TranslateStaticLoader(http, '/assets/i18n', '.json');
+}
+
 @NgModule({
-    imports: [ CommonModule,ComponentModule,SignRoutes],
-    providers: [],
+    imports: [
+        ComponentModule,
+        SignRoutes,
+        HttpModule,
+        JsonpModule,
+        TranslateModule.forRoot({
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [Http]
+        }),
+        SharedModule,
+    ],
     declarations: [
-        SignComponent, LoginComponent
+        SignComponent,
+        LoginComponent,
     ]
 })
-export class SignModule {}
+export class SignModule {
+    
+ }

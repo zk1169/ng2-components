@@ -1,9 +1,8 @@
 import { Type } from '@angular/core';
+import _ from 'lodash';
 
 import { TestComponent } from './test-component';
 import { Test2Component } from './test2-component';
-
-
 
 export class ComponentModel {
   static componentList: Type<any>[] = [
@@ -15,14 +14,7 @@ export class ComponentModel {
   }
 
   get component(): Type<any> {
-    let _class = null;
-    ComponentModel.componentList.forEach((item) => {
-      if (item.name === this.componentStr) {
-        _class = item;
-        return;
-      }
-    });
-    return _class;
+    return _.find(ComponentModel.componentList, item => item.name === this.componentStr);
   }
 
   //constructor(public component: Type<any>, public options: any) {}
