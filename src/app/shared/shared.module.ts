@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ZkButtonComponent } from './components/button-component';
 import { ZkCheckboxComponent } from './components/checkbox-component';
 import { ZkRadioComponent } from './components/radio-component';
+import { ZkSelectComponent } from './components/select-component';
 import { ZkBusyDirective } from './directives/busy.directive';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ZkBusyDirective } from './directives/busy.directive';
     ZkButtonComponent,
     ZkCheckboxComponent,
     ZkRadioComponent,
+    ZkSelectComponent,
     ZkBusyDirective,
   ],
   exports: [
@@ -24,6 +26,7 @@ import { ZkBusyDirective } from './directives/busy.directive';
     ZkButtonComponent,
     ZkCheckboxComponent,
     ZkRadioComponent,
+    ZkSelectComponent,
     ZkBusyDirective,
   ],
 })
